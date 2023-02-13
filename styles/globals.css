@@ -206,3 +206,10 @@
     background-position: 0% 50%;
   }
 }
+
+.rex2 {
+  box-shadow: -1px 2px 22px 8px rgba(171, 171, 171, 0.54);
+  -webkit-box-shadow: -1px 2px 22px 8px rgba(171, 171, 171, 0.54);
+  -moz-box-shadow: -1px 2px 22px 8px rgba(171, 171, 171, 0.54);
+  border-radius: 10px;
+}
