@@ -1,3 +1,18 @@
+import { AiOutlineHome, AiOutlineLineChart } from "react-icons/ai";
+import { FiUpload } from "react-icons/fi";
+import { FaExchangeAlt } from "react-icons/fa";
+import {
+  MdOutlineSpaceDashboard,
+  MdOutlineAnalytics,
+  MdOutlineIntegrationInstructions,
+  MdOutlineMoreHoriz,
+  MdOutlineSettings,
+  MdOutlineLogout,
+} from "react-icons/md";
+import { BsGear, BsPiggyBank } from "react-icons/bs";
+import { BiDroplet } from "react-icons/bi";
+import { GiChest } from "react-icons/gi";
+
 export const exploreWorlds = [
   {
     id: "world-1",
@@ -84,5 +99,33 @@ export const socials = [
   {
     name: "facebook",
     url: "/facebook.svg",
+  },
+];
+
+export const navigation = [
+  {
+    name: "Dashboard",
+    href: "/dashboard",
+    icon: <AiOutlineHome />,
+  },
+  {
+    name: "Create Domain",
+    href: "/createDomain",
+    icon: <FaExchangeAlt />,
+  },
+  {
+    name: "Minter",
+    href: "/minter",
+    icon: <AiOutlineLineChart />,
+  },
+  {
+    name: "Integration",
+    href: "/integration",
+    icon: <MdOutlineIntegrationInstructions />,
+  },
+  {
+    name: "Send Tokens",
+    href: "/send-tokens",
+    icon: <FiUpload />,
   },
 ];

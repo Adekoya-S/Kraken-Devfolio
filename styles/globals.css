@@ -105,3 +105,104 @@
   background: #65c4fa;
   filter: blur(150px);
 }
+
+.gradi {
+  /* ff 3.6+ */
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(44, 44, 50, 1) 0%,
+    rgba(16, 16, 16, 1) 100%
+  );
+
+  /* safari 5.1+,chrome 10+ */
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(44, 44, 50, 1) 0%,
+    rgba(16, 16, 16, 1) 100%
+  );
+
+  /* opera 11.10+ */
+  background: -o-linear-gradient(
+    90deg,
+    rgba(44, 44, 50, 1) 0%,
+    rgba(16, 16, 16, 1) 100%
+  );
+
+  /* ie 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#101010', endColorstr='#2C2C32', GradientType=0 );
+
+  /* ie 10+ */
+  background: -ms-linear-gradient(
+    90deg,
+    rgba(44, 44, 50, 1) 0%,
+    rgba(16, 16, 16, 1) 100%
+  );
+
+  /* global 94%+ browsers support */
+  background: linear-gradient(
+    90deg,
+    rgba(44, 44, 50, 1) 0%,
+    rgba(16, 16, 16, 1) 100%
+  );
+}
+
+.black-orange-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(41, 41, 41, 1) 0%,
+    rgba(30, 30, 30, 1) 95%,
+    rgba(145, 143, 111, 0.7959558823529411) 100%
+  );
+}
+
+.feature-bal {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 30, 30, 1) 0%,
+    rgba(30, 30, 30, 1) 50%,
+    rgba(14, 14, 14, 1) 100%
+  );
+}
+
+.animated_gradient {
+  background: linear-gradient(270deg, #0a0e10, #5d5b61);
+  background-size: 400% 400%;
+
+  -webkit-animation: animeGrad 30s ease infinite;
+  -moz-animation: animeGrad 30s ease infinite;
+  animation: animeGrad 30s ease infinite;
+}
+
+@-webkit-keyframes animeGrad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes animeGrad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes animeGrad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
