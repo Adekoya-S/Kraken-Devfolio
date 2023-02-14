@@ -1,6 +1,15 @@
-import React from "react";
+import { useState } from "react";
+import CreateModal from "./CreateSbtModal";
+import CreateStaModal from "./CreateStaModal";
 
 const DomainTypeCard = () => {
+  const [showSbtModal, setShowSbtModal] = useState(false);
+  const [showStandardModal, setShowStandardModal] = useState(false);
+
+  const handleOnClose = () => setShowSbtModal(false);
+
+  const handleStandardClose = () => setShowStandardModal(false);
+
   return (
     <div className="ml-[350px] w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto">
       <div className="shadow p-5 rounded-lg border-t-4 border-purple-900 bg-gray-400  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 rex2">
@@ -54,7 +63,11 @@ const DomainTypeCard = () => {
         </div>
 
         <div className="mt-8">
-          <button className="bg-gray-500 hover:bg-gray-500 px-3 py-2 rounded-lg w-full text-white">
+          <button
+            className="bg-gray-500 hover:bg-gray-500 px-3 py-2 rounded-lg w-full text-white"
+            visible={showSbtModal}
+            onClick={() => setShowStandardModal(true)}
+          >
             Create Standard Domain
           </button>
         </div>
@@ -111,11 +124,20 @@ const DomainTypeCard = () => {
         </div>
 
         <div className="mt-8">
-          <button className="bg-gray-500 hover:bg-gray-500 px-3 py-2 rounded-lg w-full text-white">
+          <button
+            className="bg-gray-500 hover:bg-gray-500 px-3 py-2 rounded-lg w-full text-white"
+            visible={showSbtModal}
+            onClick={() => setShowSbtModal(true)}
+          >
             Create SBT Domain
           </button>
         </div>
       </div>
+      <CreateModal onClose={handleOnClose} visible={showSbtModal} />
+      <CreateStaModal
+        onClose={handleStandardClose}
+        visible={showStandardModal}
+      />
     </div>
   );
 };
