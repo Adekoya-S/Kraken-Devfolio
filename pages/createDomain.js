@@ -6,7 +6,7 @@ import React from "react";
 
 const createDomain = () => {
   return (
-    <div className="gradi h-screen">
+    <div className="bg-primary-black h-screen">
       <div className="flex">
         <Sidebar />
         <ProfileNavbar />

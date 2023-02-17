@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useAccount } from "wagmi";
+import { config } from "@/abi";
+import { ethers } from "ethers";
 import { motion } from "framer-motion";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { GridLoader } from "react-spinners";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Switch from "./Switch";
+import sbtDomainFactoryAbi from "../abi/sbtFactoryAbi.json";
 
 const dropIn = {
   hidden: {
@@ -28,6 +32,46 @@ const dropIn = {
 };
 
 const CreateModal = ({ visible, onClose }) => {
+  const { address } = useAccount();
+  const [sbtAddress, setSbtAddress] = useState("");
+  const [domainName, setDomainName] = useState("");
+  const [price, setPrice] = useState("");
+  const [symbol, setSymbol] = useState("");
+  const [buyingEnabled, setBuyingEnabled] = useState(false);
+
+  const createSbtDomain = async (e) => {
+    e.preventDefault();
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const formattedDomainName = domainName
+      .replace(/\s+/g, "")
+      .toLowerCase()
+      .trim();
+    const formattedSymbol = symbol.replace(/\s+/g, "").toUpperCase().trim();
+    const formattedPrice = ethers.utils.parseEther(price, "wei");
+
+    console.log(formattedDomainName, formattedSymbol, price, buyingEnabled);
+
+    const sbtFactory = new ethers.Contract(
+      config.sbtFactoryAddress,
+      sbtDomainFactoryAbi,
+      signer
+    );
+
+    console.log(formattedTldName);
+    const { 0: sbtAddress } = await sbtFactory.createTld(
+      formattedDomainName,
+      formattedSymbol,
+      address,
+      formattedPrice,
+      buyingEnabled
+      // { gasLimit: 1e6 }
+    );
+    setSbtAddress(sbtAddress);
+  };
+
   if (!visible) return null;
 
   const handleOnClose = (e) => {
@@ -59,7 +103,7 @@ const CreateModal = ({ visible, onClose }) => {
               </label>
               <input
                 type="text"
-                className="border black-orange-gradient text-sm border-secondary-white p-2 rounded mb-5 text-white"
+                className="border bg-gray-800 text-sm border-secondary-white p-2 rounded mb-5 text-white"
                 placeholder="Please input a name"
                 required
                 // defaultValue={senderName}
@@ -73,7 +117,7 @@ const CreateModal = ({ visible, onClose }) => {
               </label>
               <input
                 type="text"
-                className="border text-sm border-secondary-white black-orange-gradient p-2 rounded mb-5 text-white"
+                className="border text-sm border-secondary-white bg-gray-800 p-2 rounded mb-5 text-white"
                 placeholder='Domain symbol (i.e ".tld", ".kraken")'
                 required
                 // defaultValue={senderName}
@@ -100,7 +144,7 @@ const CreateModal = ({ visible, onClose }) => {
                 type="number"
                 min="0.001"
                 step="0.001"
-                className="border border-secondary-white p-2 rounded mb-5 text-sm black-orange-gradient text-white"
+                className="border border-secondary-white p-2 rounded mb-5 text-sm bg-gray-800 text-white"
                 placeholder="price per mint"
                 required
                 // defaultValue={amount}

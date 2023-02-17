@@ -63,6 +63,7 @@ const ProfileNavbar = () => (
         <ConnectButton />
       </button>
     </div>
+    
   </nav>
 );
 

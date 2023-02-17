@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import DomainCard from "./DomainCard";
-import domainResolverAbi from "../static/krakenDomainResolver.json";
+import domainResolverAbi from "../abi/krakenDomainResolver.json";
 import { ethers } from "ethers";
 import { useAccount } from "wagmi";
-import { config } from "../static";
+import { config } from "../abi";
 
 const StandardDomains = () => {
   const { address, isConnected } = useAccount();
