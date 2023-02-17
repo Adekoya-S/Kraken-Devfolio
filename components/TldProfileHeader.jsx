@@ -6,7 +6,7 @@ const TldProfileHeader = () => {
   const [value, setValue] = useState("");
   const [copied, setCopied] = useState("");
 
-  const text = "yellow world";
+  const text = "/mint-domain";
 
   return (
     <div className="text-white ml-[250px] mt-8 flex flex-col items-center justify-center">
@@ -16,7 +16,7 @@ const TldProfileHeader = () => {
       </p>
       <div className="flex items-center gap-1 mb-6">
         <button className="p-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse rounded-xl">
-          Visit Minting Page
+          <a href="/mint-domain">Visit Minting Page</a>
         </button>
         &nbsp;&nbsp;
         <CopyToClipboard text={text} onCopy={() => setCopied(true)}>

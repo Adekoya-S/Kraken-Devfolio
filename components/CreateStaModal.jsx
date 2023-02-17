@@ -124,7 +124,7 @@ const CreateStaModal = ({ visible, onClose }) => {
           {!isLoading && (
             <>
               <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full  py-20  flex flex-col items-center justify-center">
-                <div className="px-[60px]">
+                <div className="px-[40px]">
                   <h1 className="text-center text-2xl text-secondary-white">
                     Create your Custom Standard Domain
                   </h1>

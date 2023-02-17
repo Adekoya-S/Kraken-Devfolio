@@ -38,6 +38,9 @@ const CreateModal = ({ visible, onClose }) => {
   const [price, setPrice] = useState("");
   const [symbol, setSymbol] = useState("");
   const [buyingEnabled, setBuyingEnabled] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [receipt, setReceipt] = useState(false);
+  const [hash, setHash] = useState("");
 
   const createSbtDomain = async (e) => {
     e.preventDefault();
@@ -60,8 +63,9 @@ const CreateModal = ({ visible, onClose }) => {
       signer
     );
 
-    console.log(formattedTldName);
-    const { 0: sbtAddress } = await sbtFactory.createTld(
+    setIsLoading(true);
+
+    const createSbtDomain = await sbtFactory.createTld(
       formattedDomainName,
       formattedSymbol,
       address,
@@ -69,7 +73,14 @@ const CreateModal = ({ visible, onClose }) => {
       buyingEnabled
       // { gasLimit: 1e6 }
     );
-    setSbtAddress(sbtAddress);
+
+    const receipt = await createSbtDomain.wait();
+    console.log("createSbtDomain: ", await createSbtDomain.hash);
+    console.log("receipt: ", receipt);
+
+    setIsLoading(false);
+    setReceipt(true);
+    setHash(createSbtDomain.hash);
   };
 
   if (!visible) return null;
@@ -89,72 +100,112 @@ const CreateModal = ({ visible, onClose }) => {
         animate="visible"
         exit="exit"
       >
-        <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full mx-[380px] py-24">
-          <div>
-            <h1 className="text-center text-3xl text-secondary-white">
-              Create your Custom SBT Domain
+        <div className={receipt === true ? "hidden" : "block"}>
+          {isLoading && (
+            <div className=" rex3 bg-primary-black  p-10 rounded-[40px] w-full py-24  flex flex-col items-center justify-center">
+              <div className="text-center mx-[60px]">
+                <h1 className="font-semibold text-center text-xl text-secondary-white mb-8">
+                  Please Wait!{" "}
+                  <span className="italic">Creating your Domain...</span>
+                </h1>
+                <GridLoader size={60} color="#A020F0" />
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className={receipt === true ? "hidden" : "block"}>
+          {!isLoading && (
+            <>
+              <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full  py-20  flex flex-col items-center justify-center">
+                <div className="px-[50px]">
+                  <h1 className="text-center text-2xl text-secondary-white">
+                    Create your Custom Standard Domain
+                  </h1>
+                  <form className="flex flex-col" noValidate autoComplete="off">
+                    <label
+                      htmlFor="eventname"
+                      className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2"
+                    >
+                      Domain Name:
+                    </label>
+                    <input
+                      type="text"
+                      className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-gray-800 text-white"
+                      placeholder="Please input a name"
+                      required
+                      onChange={(e) => setDomainName(e.target.value)}
+                    />
+                    <label
+                      htmlFor="eventname"
+                      className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2"
+                    >
+                      Symbol:
+                    </label>
+                    <input
+                      type="text"
+                      className="border text-sm border-secondary-white  text-secondary-white bg-gray-800 p-2 rounded mb-5"
+                      placeholder='Domain symbol (i.e "TLD", "KRAKEN")'
+                      required
+                      // defaultValue={symbol}
+                      onChange={(e) => setSymbol(e.target.value)}
+                    />
+                    <label
+                      htmlFor="eventname"
+                      className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2 pb-4"
+                    >
+                      Buying Status:
+                    </label>
+                    <Switch
+                      isOn={buyingEnabled}
+                      handleToggle={() => setBuyingEnabled(!buyingEnabled)}
+                    />
+                    <label
+                      htmlFor="eventname"
+                      className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2"
+                    >
+                      Mint Price:
+                    </label>
+                    <input
+                      id="amount"
+                      type="number"
+                      min="0.000"
+                      step="0.001"
+                      className="border border-secondary-white text-secondary-white p-2 rounded mb-5 text-sm bg-gray-800"
+                      placeholder="price per mint"
+                      required
+                      // defaultValue={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                    />
+                  </form>
+                  <div className="text-center">
+                    <button
+                      className="px-5 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg"
+                      onClick={createSbtDomain}
+                    >
+                      Create Domain
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+        <div className={receipt === true ? "block" : "hidden"}>
+          <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full py-24  flex flex-col items-center justify-center">
+            <h1 className="text-lg text-secondary-white">
+              Your domain has been created on the Mantle Testnet.
             </h1>
-            <form className="flex flex-col" noValidate autoComplete="off">
-              <label
-                htmlFor="eventname"
-                className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2"
+            <div className="flex items-center w-full justify-center mt-[20px] text-[100px] text-green-500">
+              <IoMdCheckmarkCircle />
+            </div>
+            <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-2 text-white mt-4 font-bold rounded-xl">
+              <a
+                target="_blank"
+                href={"https://explorer.testnet.mantle.xyz/tx/" + hash}
               >
-                Domain Name:
-              </label>
-              <input
-                type="text"
-                className="border bg-gray-800 text-sm border-secondary-white p-2 rounded mb-5 text-white"
-                placeholder="Please input a name"
-                required
-                // defaultValue={senderName}
-                // onChange={(e) => setSenderName(e.target.value)}
-              />
-              <label
-                htmlFor="eventname"
-                className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2"
-              >
-                Symbol:
-              </label>
-              <input
-                type="text"
-                className="border text-sm border-secondary-white bg-gray-800 p-2 rounded mb-5 text-white"
-                placeholder='Domain symbol (i.e ".tld", ".kraken")'
-                required
-                // defaultValue={senderName}
-                // onChange={(e) => setSenderName(e.target.value)}
-              />
-              <label
-                htmlFor="eventname"
-                className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2 pb-4"
-              >
-                Buying Status:
-              </label>
-              {/* <Switch
-                isOn={buyingEnabled}
-                handleToggle={() => setBuyingEnabled(!buyingEnabled)}
-              /> */}
-              <label
-                htmlFor="eventname"
-                className="block text-sm font-medium text-secondary-white sm:mt-px sm:pt-2"
-              >
-                Mint Price:
-              </label>
-              <input
-                id="amount"
-                type="number"
-                min="0.001"
-                step="0.001"
-                className="border border-secondary-white p-2 rounded mb-5 text-sm bg-gray-800 text-white"
-                placeholder="price per mint"
-                required
-                // defaultValue={amount}
-                // onChange={(e) => setAmount(e.target.value)}
-              />
-            </form>
-            <div className="text-center">
-              <button className="px-5 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg">
-                Create Domain
-              </button>
+                Verify Transaction
+              </a>
             </div>
           </div>
         </div>
