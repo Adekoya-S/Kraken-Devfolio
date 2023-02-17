@@ -45,7 +45,7 @@ const CreateStaModal = ({ visible, onClose }) => {
         animate="visible"
         exit="exit"
       >
-        <div className="rex3 bg-[#1c1c1c]  p-10 rounded-[40px] w-full mx-[380px] py-24">
+        <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full mx-[380px] py-24">
           <div>
             <h1 className="text-center text-2xl text-secondary-white">
               Create your Custom Standard Domain
@@ -59,7 +59,7 @@ const CreateStaModal = ({ visible, onClose }) => {
               </label>
               <input
                 type="text"
-                className="border text-white gradi text-sm border-secondary-white p-2 rounded mb-5"
+                className="border  gradi text-sm border-secondary-white p-2 rounded mb-5 black-orange-gradient text-white"
                 placeholder="Please input a name"
                 required
                 // defaultValue={senderName}
@@ -73,7 +73,7 @@ const CreateStaModal = ({ visible, onClose }) => {
               </label>
               <input
                 type="text"
-                className="border text-sm border-secondary-white  text-secondary-white gradi p-2 rounded mb-5"
+                className="border text-sm border-secondary-white  text-secondary-white black-orange-gradient p-2 rounded mb-5"
                 placeholder='Domain symbol (i.e ".tld", ".kraken")'
                 required
                 // defaultValue={senderName}
@@ -100,7 +100,7 @@ const CreateStaModal = ({ visible, onClose }) => {
                 type="number"
                 min="0.001"
                 step="0.001"
-                className="border border-secondary-white text-secondary-white p-2 rounded mb-5 text-sm gradi"
+                className="border border-secondary-white text-secondary-white p-2 rounded mb-5 text-sm black-orange-gradient"
                 placeholder="price per mint"
                 required
                 // defaultValue={amount}

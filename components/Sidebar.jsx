@@ -19,10 +19,10 @@ const Sidebar = () => {
   return (
     <>
       <nav
-        className="hidden gradi fixed top-0 left-0 bg-gray-900 items-center h-screen w-[250px]  right-0  navbar mt-0  md:block "
+        className="hidden  fixed top-0 left-0 bg-gray-900 items-center h-screen w-[250px]  right-0  navbar mt-0  md:block "
         aria-label="Sidebar"
       >
-        <Link className="flex items-center ml-14 mt-6 gradi" href="/">
+        <Link className="flex items-center ml-14 mt-6 " href="/">
           <SiHiveBlockchain className="text-white text-[24px]" />
           &nbsp;&nbsp;
           <h2 className="font-extrabold text-[24px] leading-[30px] text-white">

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import styles from "../styles";
 import { navVariants } from "../utils/motion";
 import { SiHiveBlockchain } from "react-icons/si";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const MintNavbar = () => (
   <motion.nav
@@ -26,9 +27,8 @@ const MintNavbar = () => (
         <li>Resources</li>
         <li>Community</li>
       </ul>
-      <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-2 text-white rounded-[10px] font-bold">
-        Connect Wallet
-      </button>
+
+      <ConnectButton />
     </div>
   </motion.nav>
 );

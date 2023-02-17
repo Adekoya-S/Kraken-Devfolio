@@ -5,9 +5,12 @@ import styles from "../styles";
 import { navVariants } from "../utils/motion";
 import { SiHiveBlockchain } from "react-icons/si";
 import { MdOutlineNotificationsNone } from "react-icons/md";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const ProfileNavbar = () => (
-  <nav className={`ml-[250px] h-1/2 bg-gray-500 gradi w-[85%] py-2`}>
+  <nav
+    className={`ml-[250px] h-1/2 bg-gray-800 opacity-80 shadow-2xl w-[85%] py-2`}
+  >
     {/* <div className="absolute w-[50%] inset-0 gradient-01" /> */}
     <div
       className={`${styles.innerWidth} mx-auto flex justify-end items-center gap-3`}
@@ -57,7 +60,7 @@ const ProfileNavbar = () => (
       </div>
       &nbsp; &nbsp;
       <button className="gradi p-2 pr-10 text-white rounded-[10px] font-bold">
-        Connect Button
+        <ConnectButton />
       </button>
     </div>
   </nav>

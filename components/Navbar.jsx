@@ -27,7 +27,9 @@ const Navbar = () => (
         <li>Community</li>
       </ul>
       <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-2 text-white rounded-[10px] font-bold">
-        Launch App
+        <a href="/dashboard" target="_blank">
+          Launch App
+        </a>
       </button>
     </div>
   </motion.nav>

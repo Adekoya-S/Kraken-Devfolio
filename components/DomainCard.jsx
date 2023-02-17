@@ -2,12 +2,12 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const image =
-  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3R8ZW58MHx8MHx8&w=1000&q=80";
+// const image =
+//   "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3R8ZW58MHx8MHx8&w=1000&q=80";
 
-const title = "Yellow";
+// const title = "Yellow";
 
-const DomainCard = () => {
+const DomainCard = ({ domainName, tld, image }) => {
   return (
     <div
       className={`w-full h-full cursor-pointer relative overflow-hidden rex2 p-1 flex flex-col items-center mb-10`}
@@ -21,7 +21,8 @@ const DomainCard = () => {
       <div className="flex items-center justify-between gap-4">
         <div>
           <h3 className="mt-1 text-md text-center font-bold text-white w-full">
-            {title}
+            {domainName}
+            {tld}
           </h3>
           <div className="flex items-center justify-between mt-1">
             <div className="flex flex-col">

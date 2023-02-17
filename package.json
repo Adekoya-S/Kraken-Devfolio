@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@arcana/auth-wagmi": "^0.0.2",
+    "@headlessui/react": "^1.7.10",
     "@next/font": "13.1.6",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "autoprefixer": "^10.4.13",
