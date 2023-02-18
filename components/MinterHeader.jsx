@@ -12,8 +12,8 @@ import ConfirmationModal from "@/components/ConfirmationModal";
 const MinterHeader = () => {
   const { address, isConnected } = useAccount();
   const [userDomain, setUserDomain] = useState("");
-  const [selectDomain, setSelectDomain] = useState(".rest");
-  const [selectDomainPrice, setSelectDomainPrice] = useState("0.1");
+  const [selectDomain, setSelectDomain] = useState(".test");
+  const [selectDomainPrice, setSelectDomainPrice] = useState("0.2");
   const [domainFactory, setDomainFactory] = useState("");
   const [domains, setDomains] = useState();
   const [openMintModal, setOpenMintModal] = useState(false);
@@ -23,7 +23,7 @@ const MinterHeader = () => {
     e.preventDefault();
 
     toast.error("Please connect a Compatible Web3 Wallet", {
-      position: toast.POSITION.TOP_CENTER,
+      position: toast.POSITION.TOP_RIGHT,
     });
   };
 
@@ -31,7 +31,7 @@ const MinterHeader = () => {
 
   const getDomainPrice = async (domain) => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      process.env.NEXT_PUBLIC_MANTLE_ENDPOINT
     );
 
     const domainAddress = await domainFactory.tldNamesAddresses(domain);
@@ -43,15 +43,15 @@ const MinterHeader = () => {
     );
 
     const price = await domainContract.price();
-    console.log(price);
+    // console.log(price);
     const formatPrice = ethers.utils.formatEther(price);
     setSelectDomainPrice(formatPrice);
-    console.log(formatPrice);
+    // console.log(formatPrice);
   };
 
   const getDomains = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      process.env.NEXT_PUBLIC_MANTLE_ENDPOINT
     );
     // const signer = provider.getSigner();
 
@@ -65,14 +65,14 @@ const MinterHeader = () => {
 
     const tldAddresses = await newDomainFactory.getTldsArray().then((res) => {
       setDomains(res);
-      console.log(res);
+      // console.log(res);
     });
   };
 
   const handleChange = (event) => {
     setSelectDomain(event.target.value);
     getDomainPrice(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   useEffect(() => {

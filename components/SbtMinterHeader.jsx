@@ -30,7 +30,7 @@ const SbtMinter = () => {
 
   const getTldPrice = async (tld) => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      process.env.NEXT_PUBLIC_MANTLE_ENDPOINT
     );
 
     const tldAddress = await domainFactory.tldNamesAddresses(tld);
@@ -49,7 +49,7 @@ const SbtMinter = () => {
 
   const getTldDomains = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      process.env.NEXT_PUBLIC_MANTLE_ENDPOINT
     );
     // const signer = provider.getSigner();
 
