@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +8,7 @@ import UpdateMetadata from "./modals/UpdateMetadata";
 
 // const title = "Yellow";
 
-const DomainCard = ({ domainName, tld, image }) => {
+const DomainSbtCard = ({ domainName, tld, image }) => {
   const [openMintModal, setOpenMintModal] = useState(false);
 
   const handleMintOnClose = () => setOpenMintModal(false);
@@ -41,9 +39,9 @@ const DomainCard = ({ domainName, tld, image }) => {
               <p className="bg-gray-400 text-sm p-1 rounded-md font-bold mt-1">
                 Contract Address: 0x234484444
               </p>
-              <button className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-gray-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-sm ml-2  py-2 ">
+              {/* <button className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-gray-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-sm ml-2  py-2 ">
                 Transfer Domain
-              </button>
+              </button> */}
               <button
                 className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-slate-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-sm ml-2  py-2 "
                 onClick={openUpdate}
@@ -64,4 +62,4 @@ const DomainCard = ({ domainName, tld, image }) => {
   );
 };
 
-export default DomainCard;
+export default DomainSbtCard;

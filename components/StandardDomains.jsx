@@ -102,16 +102,18 @@ const StandardDomains = () => {
   };
 
   return (
-    <div className="ml-[300px] gap-4 columns-2 md:gap-2 sm:columns-3">
-      {response.map((data, index) => (
-        <DomainCard
-          key={index}
-          domainName={data.domainName}
-          tld={data.tld}
-          image={data.image}
-        />
-      ))}
-      {/* <DomainCard /> */}
+    <div className="bg-primary-black">
+      <div className="ml-[300px] gap-4 columns-2 md:gap-2 sm:columns-3 ">
+        {response.map((data, index) => (
+          <DomainCard
+            key={index}
+            domainName={data.domainName}
+            tld={data.tld}
+            image={data.image}
+          />
+        ))}
+        {/* <DomainCard /> */}
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ const dropIn = {
   },
 };
 
-const CreateModal = ({ visible, onClose }) => {
+const CreateSbtModal = ({ visible, onClose }) => {
   const { address } = useAccount();
   const [sbtAddress, setSbtAddress] = useState("");
   const [domainName, setDomainName] = useState("");
@@ -120,7 +120,7 @@ const CreateModal = ({ visible, onClose }) => {
               <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full  py-20  flex flex-col items-center justify-center">
                 <div className="px-[50px]">
                   <h1 className="text-center text-2xl text-secondary-white">
-                    Create your Custom Standard Domain
+                    Create your Custom SBT Domain
                   </h1>
                   <form className="flex flex-col" noValidate autoComplete="off">
                     <label
@@ -214,4 +214,4 @@ const CreateModal = ({ visible, onClose }) => {
   );
 };
 
-export default CreateModal;
+export default CreateSbtModal;

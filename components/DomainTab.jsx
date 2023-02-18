@@ -8,7 +8,7 @@ const DomainTab = () => {
 
   return (
     <div>
-      <div className="ml-[250px] text-white text-2xl font-bold text-center mt-14">
+      <div className="ml-[250px] text-white text-2xl font-bold text-center mt-14 bg-primary-black h-full">
         My Domains
       </div>
       <div className="mx-auto mt-4">

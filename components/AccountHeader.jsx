@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "../styles";
 import { FaWallet } from "react-icons/fa";
@@ -36,13 +38,13 @@ const AccountHeader = () => {
       className={`ml-[330px] mt-[50px]   md:flex-row flex-col ${styles}`}
     >
       <div className="flex gap-4">
-        <div className="card p-20 bg-slate-700 black-orange-gradient rounded-lg w-[45%] text-secondary-white flex items-center gap-4 shadow-2xl rex">
+        <div className="card p-20 bg-slate-800  rounded-lg w-[45%] text-secondary-white flex items-center gap-4 shadow-2xl rex3">
           <span className="bg-secondary-white p-2 rounded-lg">
             <AiOutlineHome className="text-gray-600 text-2xl" />
           </span>
           Address: {formatAddress(address)}...
         </div>
-        <div className="card p-20 bg-slate-700 black-orange-gradient rex rounded-lg w-[45%] text-secondary-white flex items-center gap-4 shadow-2xl">
+        <div className="card p-20 bg-slate-800 rex3 rex rounded-lg w-[45%] text-secondary-white flex items-center gap-4 shadow-2xl">
           <span className="bg-secondary-white p-2 rounded-lg">
             <RiWallet3Line className="text-gray-600 text-2xl" />
           </span>

@@ -18,7 +18,7 @@ const Dashboard = () => {
   return (
     <>
       {isConnected && (
-        <div className="bg-primary-black h-full">
+        <div className="bg-primary-black h-screen">
           <div className="flex">
             <Sidebar />
             <ProfileNavbar />
