@@ -17,16 +17,16 @@ const ProfileNavbar = () => (
     >
       <form className="w-1/2">
         <label
-          for="default-search"
+          htmlFor="default-search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
         >
           Search
         </label>
-        <div class="relative">
-          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none shadow-2xl">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none shadow-2xl">
             <svg
               aria-hidden="true"
-              class="w-5 h-5 text-gray-50 dark:text-gray-400"
+              className="w-5 h-5 text-gray-50 dark:text-gray-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -43,13 +43,13 @@ const ProfileNavbar = () => (
           <input
             type="search"
             id="default-search"
-            class="block w-full p-4 pl-10 text-sm text-gray-50 border border-gray-500 rounded-lg bg-gr gradi"
+            className="block w-full p-4 pl-10 text-sm text-gray-50 border border-gray-500 rounded-lg bg-gr gradi"
             placeholder="Search Domains..."
             required
           />
           <button
             type="submit"
-            class="text-white absolute right-2.5 bottom-2.5 bg-gray-700 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
+            className="text-white absolute right-2.5 bottom-2.5 bg-gray-700 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
           >
             Search
           </button>
@@ -63,7 +63,6 @@ const ProfileNavbar = () => (
         <ConnectButton />
       </button>
     </div>
-    
   </nav>
 );
 

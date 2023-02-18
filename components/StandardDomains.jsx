@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
 import DomainCard from "./DomainCard";
+import DomainSkeleton from "../components/skeleton/DomainSkeleton";
 import domainResolverAbi from "../abi/krakenDomainResolver.json";
 import { ethers } from "ethers";
 import { useAccount } from "wagmi";
 import { config } from "../abi";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const StandardDomains = () => {
   const { address, isConnected } = useAccount();
   const [response, setResponse] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getProfileDetails = async () => {
+    setLoading(true);
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
@@ -30,12 +35,14 @@ const StandardDomains = () => {
     const domainUriArr = await getDomainUri(domainDetails);
     console.log("domain uri", domainUriArr);
     setResponse(domainUriArr);
+
+    setLoading(false);
   };
 
   useEffect(() => {
     getProfileDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [address]);
 
   const getDefaultDomains = async (defaultDomains) => {
     let domainDetailsArr = [];
@@ -104,14 +111,16 @@ const StandardDomains = () => {
   return (
     <div className="bg-primary-black">
       <div className="ml-[300px] gap-4 columns-2 md:gap-2 sm:columns-3 ">
-        {response.map((data, index) => (
-          <DomainCard
-            key={index}
-            domainName={data.domainName}
-            tld={data.tld}
-            image={data.image}
-          />
-        ))}
+        {loading && <DomainSkeleton cards={3} />}
+        {!loading &&
+          response?.map((data, index) => (
+            <DomainCard
+              key={index}
+              domainName={data.domainName}
+              tld={data.tld}
+              image={data.image}
+            />
+          ))}
         {/* <DomainCard /> */}
       </div>
     </div>

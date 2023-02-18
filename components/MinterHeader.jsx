@@ -7,6 +7,7 @@ import { config } from "../abi";
 import krakenDomainFactory from "../abi/krakenDomainFactory.json";
 import krakenDomainABI from "../abi/krakenDomainABI.json";
 import "react-toastify/dist/ReactToastify.css";
+import ConfirmationModal from "@/components/ConfirmationModal";
 
 const MinterHeader = () => {
   const { address, isConnected } = useAccount();
@@ -15,6 +16,18 @@ const MinterHeader = () => {
   const [selectDomainPrice, setSelectDomainPrice] = useState("0.1");
   const [domainFactory, setDomainFactory] = useState("");
   const [domains, setDomains] = useState();
+  const [openMintModal, setOpenMintModal] = useState(false);
+  const [domainHash, setDomainHash] = useState("");
+
+  const notify = (e) => {
+    e.preventDefault();
+
+    toast.error("Please connect a Compatible Web3 Wallet", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
+  const handleMintOnClose = () => setOpenMintModal(false);
 
   const getDomainPrice = async (domain) => {
     const provider = new ethers.providers.JsonRpcProvider(
@@ -84,13 +97,26 @@ const MinterHeader = () => {
       signer
     );
 
+    const mintNotification = toast.loading("Please wait! Minting your NFT");
+
     const mint = await domainContract.mint(formattedName, address, {
       value: formatPrice,
     });
     const receipt = await mint.wait();
     console.log(receipt);
+
+    toast.update(mintNotification, {
+      render: "Mint Completed Successfully",
+      type: "success",
+      isLoading: false,
+      autoClose: 7000,
+    });
+
     const txHash = await receipt.transactionHash;
     console.log(txHash);
+
+    setDomainHash(txHash);
+    setOpenMintModal(true);
   };
 
   return (
@@ -135,6 +161,12 @@ const MinterHeader = () => {
           Domain Price: {selectDomainPrice} BIT
         </p>
 
+        <ConfirmationModal
+          txHash={domainHash}
+          openMintModal={openMintModal}
+          handleOnClose={handleMintOnClose}
+        />
+
         {isConnected && (
           <button
             type="submit"
@@ -148,7 +180,7 @@ const MinterHeader = () => {
           <button
             type="submit"
             className="text-white font-bold border-2 border-[button-gradient] flex mx-auto justify-center bg-slate-600 hover:opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-black dark:hover:bg-black dark:focus:ring-black"
-            // onClick={notify}
+            onClick={notify}
           >
             Mint Domain
             <ToastContainer />

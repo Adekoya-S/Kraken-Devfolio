@@ -15,29 +15,37 @@ const Dashboard = () => {
 
   const handleMintOnClose = () => setOpenMintModal(true);
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <>
-      {isConnected && (
-        <div className="bg-primary-black h-screen">
-          <div className="flex">
-            <Sidebar />
-            <ProfileNavbar />
+    mounted && (
+      <>
+        {isConnected && (
+          <div className="bg-primary-black h-screen">
+            <div className="flex">
+              <Sidebar />
+              <ProfileNavbar />
+            </div>
+            <div>
+              <AccountHeader />
+              <DomainTab />
+            </div>
           </div>
-          <div>
-            <AccountHeader />
-            <DomainTab />
+        )}
+        {!isConnected && (
+          <div className="bg-primary-black h-screen">
+            <ConnectModal
+              openMintModal={openMintModal}
+              handleOnClose={handleMintOnClose}
+            />
           </div>
-        </div>
-      )}
-      {!isConnected && (
-        <div className="bg-primary-black h-screen">
-          <ConnectModal
-            openMintModal={openMintModal}
-            handleOnClose={handleMintOnClose}
-          />
-        </div>
-      )}
-    </>
+        )}
+      </>
+    )
   );
 };
 

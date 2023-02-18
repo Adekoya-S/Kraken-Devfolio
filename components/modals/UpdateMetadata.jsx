@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-const UpdateMetadata = ({ openMintModal, handleOnClose }) => {
+const UpdateMetadata = ({ openMintModal, handleOnClose, domainName, tld }) => {
   return (
     <>
       <Transition appear show={openMintModal} as={Fragment}>
@@ -40,7 +40,11 @@ const UpdateMetadata = ({ openMintModal, handleOnClose }) => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-secondary-white"
                   >
-                    Update Domain Metadata
+                    Update Domain Metadata for &nbsp;
+                    <span className="font-bold text-xl">
+                      ({domainName}
+                      {tld})
+                    </span>
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-secondary-white ">

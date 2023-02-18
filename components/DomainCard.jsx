@@ -38,9 +38,14 @@ const DomainCard = ({ domainName, tld, image }) => {
               {/* <p className="bg-slate-600 text-sm p-1 rounded-md cursor-text font-bold">
                 Token ID: 0x00000
               </p> */}
-              <p className="bg-gray-400 text-sm p-1 rounded-md font-bold mt-1">
-                Contract Address: 0x234484444
-              </p>
+              <button className="bg-gray-400 text-sm p-1 rounded-md font-bold mt-1">
+                <a
+                  target="_blank"
+                  href="https://explorer.testnet.mantle.xyz/address/0xda6b395dcfe768362e9c15a99d44ac75a9e3c6bf"
+                >
+                  Contract Address: 0xda6b3...
+                </a>
+              </button>
               <button className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-gray-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-sm ml-2  py-2 ">
                 Transfer Domain
               </button>
@@ -54,6 +59,8 @@ const DomainCard = ({ domainName, tld, image }) => {
             <ToastContainer autoClose={6000} />
           </div>
           <UpdateMetadata
+            domainName={domainName}
+            tld={tld}
             openMintModal={openMintModal}
             handleOnClose={handleMintOnClose}
           />

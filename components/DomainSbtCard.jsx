@@ -52,6 +52,8 @@ const DomainSbtCard = ({ domainName, tld, image }) => {
             <ToastContainer autoClose={6000} />
           </div>
           <UpdateMetadata
+            domainName={domainName}
+            tld={tld}
             openMintModal={openMintModal}
             handleOnClose={handleMintOnClose}
           />
