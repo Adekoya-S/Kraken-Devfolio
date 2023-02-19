@@ -4,6 +4,8 @@ This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 
 ## Minting Page Links
 - Standard (Transferable) Domain Link - https://kraken-two.vercel.app/mint-domain
+
+    You can currently mint a .mantle domain using the above link if you just want to mint a domain, and not create your own custom tld.
 - Sbt Domain Link - https://kraken-two.vercel.app/mint-sbt
 
 ## Smart Contracts Links
