@@ -1,38 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Kraken Domains
 
-## Getting Started
+This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 
-First, run the development server:
+## Smart Contracts Links
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Standard Domain Factory Address - https://explorer.testnet.mantle.xyz/address/0xD57ddE7aa7751B59ff19673Af2412F0b27f8A78A
+- Standard Domain Resolver Address - https://explorer.testnet.mantle.xyz/address/0x66FD5c67d847E55a57616a49d5F1C161334799ef
+- SBT Resolver Address - https://explorer.testnet.mantle.xyz/address/0x46519b639496e1051e59fD5A2a50ecaD6Cd9d338
+- SBT Factory Address - https://explorer.testnet.mantle.xyz/address/0xD53e24eeD08e375fa771082677DD66B61efB65Ed
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Mantle Docs: https://docs.mantle.xyz/introducing-mantle/quick-start/deploying-a-smart-contract
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The project uses Hardhat as a development environment and Mantle testnet as the network.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Workflow User
+1. Launch app to Connect Wallet and redirect to Dashboard.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![read1](https://user-images.githubusercontent.com/124390899/219905144-6ba02fc6-5fb5-45e9-9ff1-0546fcd30fb6.PNG)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+2. Create Domain Page - User can select what kind of domain they choose to create (A Standard Transferable domain or an SBT domain).
+3. User inputs the desired parameters for their domain choice
 
-To learn more about Next.js, take a look at the following resources:
+![read2](https://user-images.githubusercontent.com/124390899/219905215-ced8c522-3e71-462f-9aac-0bf5341609c8.PNG)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. After Domain is created and transaction verified, the newly created TLD (top level domain) is populated from the smart contract, using the Mantle Rpc url.
+5. User can proceed to the MINTER page to choose what the minting page they'd like to go to.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![read3](https://user-images.githubusercontent.com/124390899/219905298-184f916e-8d8e-4337-8432-3ba108cfa6fa.PNG)
 
-## Deploy on Vercel
+6. User can now add their desired name, select the TLD domain they created, and mint a domain
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
