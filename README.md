@@ -23,7 +23,7 @@ This is the repo for the Kraken Domain Project, a permissionless Web3 domain ser
 ![completed](https://user-images.githubusercontent.com/124390899/219959035-db8d8c22-60b4-41b1-92e1-81456ab9706e.PNG)
 
 
-4. After Domain is created and transaction verified, the newly created TLD (top level domain) is populated from the smart contract, using the Mantle Rpc url.
+4. After Domain is created and transaction verified, the newly created TLD (top level domain) is populated from the smart contract to the domain Minting page as a TLD option, using the Mantle Rpc url.
 5. User can proceed to the MINTER page to choose what the minting page they'd like to go to.
 
 ![read3](https://user-images.githubusercontent.com/124390899/219905298-184f916e-8d8e-4337-8432-3ba108cfa6fa.PNG)
