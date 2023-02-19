@@ -24,3 +24,10 @@ The project uses Hardhat as a development environment and Mantle testnet as the 
 
 ![read2](https://user-images.githubusercontent.com/124390899/219905215-ced8c522-3e71-462f-9aac-0bf5341609c8.PNG)
 
+4. After Domain is created and transaction verified, the newly created TLD (top level domain) is populated from the smart contract, using the Mantle Rpc url.
+5. User can proceed to the MINTER page to choose what the minting page they'd like to go to.
+
+![read3](https://user-images.githubusercontent.com/124390899/219905298-184f916e-8d8e-4337-8432-3ba108cfa6fa.PNG)
+
+6. User can now add their desired name, select the TLD domain they created, and mint a domain
+
