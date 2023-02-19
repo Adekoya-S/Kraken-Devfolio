@@ -10,6 +10,7 @@ This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 - SBT Factory Address - https://explorer.testnet.mantle.xyz/address/0xD53e24eeD08e375fa771082677DD66B61efB65Ed
 - ForbiddenTlds - https://explorer.testnet.mantle.xyz/address/0xEB68B7B7d7F7A94FC65FA0aa916845DC510aA380
 - Domain Hub - https://explorer.testnet.mantle.xyz/address/0xa1bBcdAFdC70e6C150919e48c9BB166a0125A7Eb
+- Metadata Address - https://explorer.testnet.mantle.xyz/address/0x652182af1c9114d6D01CceA127cc3EaFebCCFD9F
 
 - Mantle Docs: https://docs.mantle.xyz/introducing-mantle/quick-start/deploying-a-smart-contract
 
