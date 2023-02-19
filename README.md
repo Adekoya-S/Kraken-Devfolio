@@ -3,7 +3,7 @@
 This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 
 
-## Workflow - Create Custom Domain (i.e ".mantle", ".wadsley")
+## Workflow - Create Custom Domain (i.e .mantle, .wadsley)
 1. Launch app to Connect Wallet and redirect to Dashboard.
 
 ![read1](https://user-images.githubusercontent.com/124390899/219905144-6ba02fc6-5fb5-45e9-9ff1-0546fcd30fb6.PNG)
