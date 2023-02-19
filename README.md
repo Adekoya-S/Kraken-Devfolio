@@ -42,6 +42,18 @@ The project uses Hardhat as a development environment and Mantle testnet as the 
 ![loki](https://user-images.githubusercontent.com/124390899/219948276-a013610b-ccb8-4584-a10c-c3272af4c3aa.PNG)
 
 
+# Unfinished Features
+I've built the UI for this features, and the functions already exists on the smart contract, but I didn't have enough time to implement. I would continue after the hackathon
+
+## Update Domain Metadata
+
+![update](https://user-images.githubusercontent.com/124390899/219949004-4d88ded0-5464-4a9b-9b52-13b809a58690.PNG)
+
+## Change Domain Ownerrship
+
+![transfer](https://user-images.githubusercontent.com/124390899/219949031-6dc2f6e2-ecdf-4122-a027-6ada6740401c.PNG)
+
+
 
 
 
