@@ -132,7 +132,7 @@ const CreateSbtModal = ({ visible, onClose }) => {
                     <input
                       type="text"
                       className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-gray-800 text-white"
-                      placeholder="Please input a name"
+                      placeholder="Add domain name(i.e '.sbt')"
                       required
                       onChange={(e) => setDomainName(e.target.value)}
                     />
@@ -145,7 +145,7 @@ const CreateSbtModal = ({ visible, onClose }) => {
                     <input
                       type="text"
                       className="border text-sm border-secondary-white  text-secondary-white bg-gray-800 p-2 rounded mb-5"
-                      placeholder='Domain symbol (i.e "TLD", "KRAKEN")'
+                      placeholder='Domain symbol (i.e "SBT")'
                       required
                       // defaultValue={symbol}
                       onChange={(e) => setSymbol(e.target.value)}

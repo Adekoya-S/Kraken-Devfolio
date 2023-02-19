@@ -149,7 +149,11 @@ const SbtMinter = () => {
             >
               {tlds
                 ? tlds.map((option, index) => (
-                    <option key={index} value={option} className="p-2">
+                    <option
+                      key={index}
+                      value={option}
+                      className="p-2 bg-primary-black"
+                    >
                       {option}
                     </option>
                   ))
