@@ -20,6 +20,8 @@ This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 
 The project uses Hardhat as a development environment and Mantle testnet as the network.
 
+The ForbiddenTlds contract helps to avoid conflicts with other domain services by setting a list of domains that cannot be created or minted using Kraken (i.e .eth which is associated with ENS Domains). 
+
 ## Workflow User
 1. Launch app to Connect Wallet and redirect to Dashboard.
 
@@ -43,6 +45,8 @@ The project uses Hardhat as a development environment and Mantle testnet as the 
 
 
 ![comp](https://user-images.githubusercontent.com/124390899/219948087-3c8a8467-57c3-4704-9229-47b1d6ca7aae.PNG)
+
+After Minting, the newly created Domain is populated to the user's dashboard from the smart contract, using the Mantle RPC Url.
 
 ![loki](https://user-images.githubusercontent.com/124390899/219948276-a013610b-ccb8-4584-a10c-c3272af4c3aa.PNG)
 
