@@ -2,14 +2,6 @@
 
 This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 
-## Minting Page Links
-- Standard (Transferable) Domain Link - https://kraken-two.vercel.app/mint-domain
-
-    You can currently mint a .mantle domain using the above link if you just want to mint a domain, and not create your own custom tld.
-- Sbt Domain Link - https://kraken-two.vercel.app/mint-sbt
-
-
-
 
 ## Workflow - Create Custom Domain (i.e ".mantle", ".wadsley")
 1. Launch app to Connect Wallet and redirect to Dashboard.
@@ -17,16 +9,28 @@ This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 ![read1](https://user-images.githubusercontent.com/124390899/219905144-6ba02fc6-5fb5-45e9-9ff1-0546fcd30fb6.PNG)
 
 
-2. Create Domain Page - User can select what kind of domain they choose to create (A Standard Transferable domain or an SBT domain).
+2. CREATE DOMAIN PAGE - User can select what kind of domain they choose to create (A Standard Transferable domain or an SBT domain).
+
+![create](https://user-images.githubusercontent.com/124390899/219959369-c9b49c9e-96d3-44fd-b411-3ca380914210.PNG)
+
+
 3. User inputs the desired parameters for their domain choice
 
 ![creste](https://user-images.githubusercontent.com/124390899/219947923-aedc8339-c0f6-4b56-b50a-2d671c516ef9.PNG)
+
+![loading](https://user-images.githubusercontent.com/124390899/219959203-2a0a40b1-44f9-4d3e-9f1e-62ea70eaf4b8.PNG)
+
+![completed](https://user-images.githubusercontent.com/124390899/219959035-db8d8c22-60b4-41b1-92e1-81456ab9706e.PNG)
 
 
 4. After Domain is created and transaction verified, the newly created TLD (top level domain) is populated from the smart contract, using the Mantle Rpc url.
 5. User can proceed to the MINTER page to choose what the minting page they'd like to go to.
 
 ![read3](https://user-images.githubusercontent.com/124390899/219905298-184f916e-8d8e-4337-8432-3ba108cfa6fa.PNG)
+
+
+
+
 
 ## Workflow - Mint a Domain
 
