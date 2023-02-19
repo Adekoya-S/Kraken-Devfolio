@@ -2,6 +2,10 @@
 
 This is the repo for the Kraken Domain Project, built on the Mantle Testnet
 
+## Minting Page Links
+- Standard (Transferable) Domain Link - https://kraken-two.vercel.app/mint-domain
+- Sbt Domain Link - https://kraken-two.vercel.app/mint-sbt
+
 ## Smart Contracts Links
 
 - Standard Domain Factory Address - https://explorer.testnet.mantle.xyz/address/0xD57ddE7aa7751B59ff19673Af2412F0b27f8A78A
