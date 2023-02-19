@@ -1,6 +1,6 @@
 # Kraken Domains
 
-This is the repo for the Kraken Domain Project, built on the Mantle Testnet
+This is the repo for the Kraken Domain Project, a permissionless Web3 domain service, that enables individuals, communities and organizations (DAOs) to create a personalized top level domain and built on the Mantle Testnet
 
 
 ## Workflow - Create Custom Domain (i.e .mantle, .wadsley)
